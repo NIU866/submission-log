@@ -1,0 +1,57 @@
+:root{font:16px/1.55 "DM Sans","Microsoft YaHei UI",system-ui,sans-serif;color:#231e3d;background:#f3f0f8;--line:#e1daed;--muted:#5f5774;--accent:#5033a0;--surface:#fff}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0}
+h1,h2,h3,p,ul,ol,dl,dd{margin:0}
+.top{color:#fff;background:#292044;border-bottom:4px solid #927ada}
+.top-inner{max-width:1250px;margin:auto;padding:1.35rem 1.25rem 1.55rem;display:flex;align-items:end;justify-content:space-between;gap:1rem}
+.brand{font-size:.82rem;letter-spacing:.12em;color:#d9cdfa;font-weight:700}
+h1{font-size:clamp(1.45rem,4vw,2.25rem);line-height:1.25;margin-top:.25rem}
+.top a{color:#e9dfff;white-space:nowrap}
+main{max-width:1250px;padding:1.1rem 1.25rem 2.5rem;margin:auto}
+.toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:.65rem}
+.toolbar span{margin-left:auto;color:var(--muted);font-size:.92rem}
+button,select,input{font:inherit;color:inherit}
+button{border:1px solid var(--line);background:#fff;padding:.48rem .85rem;border-radius:.5rem;cursor:pointer;font-weight:650;font-size:.9rem;white-space:nowrap}
+button:hover:not(:disabled){background:#ede7f7}
+button:disabled{opacity:.52;cursor:default}
+.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.primary:hover:not(:disabled){background:#412784}
+:focus-visible{outline:3px solid #8d64df;outline-offset:2px}
+#status{font-size:.9rem;color:#673d88;margin-top:.6rem}
+#status:empty{display:none}
+.workspace{display:grid;grid-template-columns:minmax(215px,288px) minmax(0,1fr);gap:1rem;align-items:start;margin-top:1rem}
+.panel{background:var(--surface);box-shadow:0 4px 14px #3924650a;border:1px solid var(--line);border-radius:.9rem;padding:1.05rem}
+h2{font-size:1.2rem}
+h3{font-size:1rem}
+.search{display:grid;gap:.32rem;margin:.7rem 0;font-size:.86rem}
+input,select{border:1px solid #cec5dd;border-radius:.4rem;background:#fff;padding:.42rem .53rem;min-width:0;width:100%}
+#papers{padding:0;display:grid;gap:.36rem;max-height:30rem;overflow:auto;list-style:none}
+.paper-button{display:grid;align-items:start;gap:.12rem;padding:.6rem .64rem;width:100%;text-align:left;white-space:normal;overflow-wrap:anywhere}
+.paper-button[aria-current="true"]{border-color:#967bd3;background:#f2edfb;color:#392475}
+.paper-button small,.local,#journal,.small,#empty p{color:var(--muted)}
+.local{font-size:.82rem;margin-top:.75rem}
+#empty{padding:1.2rem .7rem}
+#empty p{margin-top:.48rem}
+.detail-head{display:flex;justify-content:space-between;gap:.85rem;align-items:start;overflow-wrap:anywhere}
+#journal{font-size:.92rem}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem;margin:1rem 0}
+.metrics>div{border:1px solid #e7e1f0;background:#f8f6fc;padding:.55rem .7rem;border-radius:.5rem;overflow-wrap:anywhere}
+.metrics span{display:block;color:var(--muted);font-size:.83rem}
+.metrics strong{display:block;font-size:1.02rem;margin-top:.15rem}
+.forms,.reports{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:.84rem 0;border-top:1px solid var(--line)}
+.forms form{display:grid;align-content:start;justify-items:start;gap:.42rem}
+.forms label,dialog label{font-size:.91rem;display:grid;gap:.2rem;width:100%}
+.small{font-size:.82rem}
+#timeline{padding:0;list-style:none;display:grid;gap:.52rem;margin-top:.6rem}
+#timeline li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.52rem;border-left:2px solid #9b86ce;padding-left:.52rem}
+#timeline time{color:var(--muted);font-size:.85rem}
+#durations{margin-top:.6rem;display:grid;grid-template-columns:1fr auto;gap:.45rem}
+#durations dd{font-weight:700}
+dialog{border:1px solid var(--line);border-radius:.85rem;padding:1.2rem;width:min(92vw,480px);color:inherit}
+dialog::backdrop{background:#221c3a77}
+dialog form{display:grid;gap:.75rem}
+dialog footer{display:flex;justify-content:flex-end;align-items:center;gap:.5rem}
+.danger{margin-right:auto;color:#8e2642}
+@media(max-width:720px){.workspace{grid-template-columns:1fr}main{padding:.85rem}#papers{max-height:14rem}.top a{font-size:.85rem}}
+@media(max-width:480px){.forms,.reports{grid-template-columns:1fr}.metrics{gap:.3rem}.metrics>div{padding:.45rem}.toolbar span{margin-left:0}}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="记录论文投稿阶段、阶段用时与返修截止日期。">
+<title>论文投稿进度追踪器 · Manuscript Desk</title>
+<link rel="stylesheet" href="styles.css">
+<header class="top">
+  <div class="top-inner">
+    <div><div class="brand">MANUSCRIPT DESK</div><h1>论文投稿进度追踪器</h1></div>
+    <a href="https://github.com/NIU866/paper-status-tracker">GitHub 源码</a>
+  </div>
+</header>
+<main>
+  <div class="toolbar" aria-label="稿件操作">
+    <button class="primary" id="add">新增稿件</button>
+    <button id="calendar" disabled>导出返修日历</button>
+    <button id="backup" disabled>导出备份</button>
+    <button id="restore">导入备份</button>
+    <input id="backup-file" type="file" accept=".json,application/json" hidden>
+    <span id="summary">0 篇稿件</span>
+  </div>
+  <p id="status" role="status"></p>
+  <div class="workspace">
+    <aside class="panel paper-rail">
+      <h2>稿件</h2>
+      <label class="search">搜索稿件 <input id="query" type="search" placeholder="标题或期刊"></label>
+      <ul id="papers" aria-label="稿件列表"></ul>
+      <p class="local">记录保存在当前浏览器。</p>
+    </aside>
+    <section class="panel" id="detail" aria-labelledby="detail-title">
+      <div id="empty"><h2>查看稿件进度</h2><p>新增第一篇稿件后，这里会显示时间线、各阶段用时和返修日期。</p></div>
+      <div id="record" hidden>
+        <div class="detail-head">
+          <div><h2 id="detail-title"></h2><p id="journal"></p></div>
+          <button id="edit">编辑</button>
+        </div>
+        <div class="metrics">
+          <div><span>当前阶段</span><strong id="current"></strong></div>
+          <div><span>累计天数</span><strong id="age"></strong></div>
+          <div><span>返修期限</span><strong id="due-summary"></strong></div>
+        </div>
+        <div class="forms">
+          <form id="event-form">
+            <h3>记录阶段</h3>
+            <label>阶段<select id="stage" required></select></label>
+            <label>变更日期<input type="date" id="stage-date" required></label>
+            <button type="submit">添加到时间线</button>
+          </form>
+          <form id="deadline-form">
+            <h3>返修日期</h3>
+            <label>截止日期<input type="date" id="due"></label>
+            <button type="submit">保存期限</button>
+            <p class="small">清空日期后保存可移除期限。</p>
+          </form>
+        </div>
+        <div class="reports">
+          <section><h3>投稿时间线</h3><ol id="timeline"></ol></section>
+          <section><h3>阶段用时</h3><dl id="durations"></dl></section>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<dialog id="editor" aria-labelledby="editor-title">
+  <form id="paper-form">
+    <h2 id="editor-title">新增稿件</h2>
+    <label>论文标题 <input id="paper-title" required maxlength="240" autocomplete="off"></label>
+    <label>期刊名称 <input id="paper-journal" required maxlength="160" autocomplete="off"></label>
+    <label id="submitted-label">投稿日期 <input id="submitted" type="date" required></label>
+    <footer>
+      <button type="button" id="remove" class="danger" hidden>删除稿件</button>
+      <button type="button" id="cancel">取消</button>
+      <button type="submit" class="primary">保存稿件</button>
+    </footer>
+  </form>
+</dialog>
+<script type="module" src="app.mjs"></script>
+</html>
